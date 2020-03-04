@@ -39,7 +39,6 @@
             $erreur = "Tous les champs doivent être complétés !";
         }
     }
-
 ?>
 
 <html lang="fr">
