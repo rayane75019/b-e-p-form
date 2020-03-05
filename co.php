@@ -15,7 +15,7 @@ if(isset($_POST['formconnexion'])) {
          $_SESSION['id'] = $userinfo['id'];
          $_SESSION['nom'] = $userinfo['nom'];
          $_SESSION['mail'] = $userinfo['mail'];
-         header("Location: form-v.php?id=".$_SESSION['id']);
+         header("Location: formData.php?id=".$_SESSION['id']);
       } else {
          $erreur = "Mauvais mail ou mot de passe !";
       }
