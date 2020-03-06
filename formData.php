@@ -73,9 +73,10 @@
         <title>test</title>
     </head>
     <body>
-        <?php echo $_SESSION['nom']; ?>
-        <a href="deco.php">  Se déconnecter</a>
-        <form action="form-test-2.php" method="post">
+        <?php echo $_SESSION['nom']; ?><br/>
+        <a href="deco.php">  Se déconnecter</a><br/>
+        <a href="list.php">  liste</a><br/>
+        <form action="formData.php" method="post">
             <input type="text" readonly value="<?php echo $_SESSION['mail']; ?>">
             <select type="text" name="typeDeMandat" required>
                 <option disabled selected value hidden> -- Selectionnez une option -- </option>

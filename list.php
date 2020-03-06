@@ -5,26 +5,24 @@
         die('Erreur : '.$e->getMessage());
     }
     session_start();
-
     
-        $requser = $bdd->prepare("SELECT id FROM superData s WHERE s.mandataire_id = '$_SESSION['id']'");
-        $requser->execute(array($mailconnect, $mdpconnect));
-        $histo = $requser->rowCount();
-        if($histo == 1) {
-           $histo = $requser->fetch();
-           $_SESSION['id'] = $userinfo['id'];
-           $_SESSION['nom'] = $userinfo['nom'];
-           $_SESSION['mail'] = $userinfo['mail'];
-           header("Location: formData.php?id=".$_SESSION['id']);
-        } else {
-           $erreur = "Mauvais mail ou mot de passe !";
-        }
+    $recherche = $bdd->query("SELECT id FROM superdata s WHERE s.mandataire_id = '{$_SESSION['id']}' ORDER BY s.id DESC");
 
-        foreach(ec)
+     echo $_SESSION['nom']; ?><br/>
+        <a href="deco.php">  Se déconnecter</a><br/>
+        <a href="formData.php">  Formulaire</a><br/>
+        <?php
 
+    while($donnees = $recherche->fetch()){
+        ?>
+        <ul>
+            <li><?php $idf = $donnees['id']; ?>
+                <a href="formReData.php?idf=<?php echo $idf;?>"><?php echo $donnees['id']; ?></a>
+            </li>
+        </ul>
+        <?php
+    }
 
-        foreach ($arr as &$value) {
-            $value = $value * 2;
-        }
+    $recherche->closeCursor(); // Termine le traitement de la requête
 
 ?>
